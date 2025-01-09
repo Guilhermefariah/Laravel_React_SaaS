@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'password' => bcrypt('123.321Aa'),
+            'password' => bcrypt('defaultpassword'),
         ]);
 
-        Feature::created([
+        Feature::create([
             'image' => 'https://static-00.iconduck.com/assets.00/plus-icon-2048x2048-z6v59bd6.png',
             'route_name' => 'feature1.index',
             'name' => 'Calculate Sum',
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'active' => true,
         ]);
 
-        Feature::created([
+        Feature::create([
             'image' => 'https://cdn-icons-png.freepik.com/512/929/929430.png',
             'route_name' => 'feature2.index',
             'name' => 'Calculate Difference',
@@ -41,19 +41,19 @@ class DatabaseSeeder extends Seeder
             'active' => true,
         ]);
 
-        Package::created([
+        Package::create([
             'name' => 'Basic',
             'price' => 5,
             'credits' => 20,
         ]);
 
-        Package::created([
+        Package::create([
             'name' => 'Silver',
             'price' => 50,
             'credits' => 500,
         ]);
 
-        Package::created([
+        Package::create([
             'name' => 'Gold',
             'price' => 50,
             'credits' => 500,
