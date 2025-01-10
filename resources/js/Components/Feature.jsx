@@ -1,10 +1,10 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, usePage } from "@inertiajs/react";
 
-export const Feature = ({ feature, answer, children }) => {
+export default function Feature({ feature, answer, children }) {
     const { auth } = usePage().props;
 
-    const availableCredits = auth.user.availableCredits;
+    const availableCredits = auth.user.available_credits;
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -61,11 +61,12 @@ export const Feature = ({ feature, answer, children }) => {
                                 </div>
                             )}
                         <div className="p-8 text-gray-400 border-b pb-4">
-                            <p>{Feature.description}</p>
+                            <p>{feature.description}</p>
                             <p className="text-sm italic text-right">
                                 Requires {feature.required_credits} credits
                             </p>
                         </div>
+                        {children}
                     </div>
                 </div>
             </div>

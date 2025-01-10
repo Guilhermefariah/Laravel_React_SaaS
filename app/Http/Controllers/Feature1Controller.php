@@ -26,7 +26,7 @@ class Feature1Controller extends Controller
 
     public function calculate(Request $request) {
         $user = $request->user();
-        if ($user->availableCredit < $this->feature->required_credit) {
+        if ($user->available_credits < $this->feature->required_credits) {
             return back();            
         }
         $data = $request->validate([
@@ -36,7 +36,7 @@ class Feature1Controller extends Controller
         $number1 = (float) $data['number1'];
         $number2 = (float) $data['number2'];
 
-        $user->availableCredit($this->feature->required_credits);
+        $user->decreaseCredits($this->feature->required_credits);
 
         UsedFeature::create([
             'feature_id' => $this->feature->id,
