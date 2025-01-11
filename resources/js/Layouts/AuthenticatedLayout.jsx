@@ -2,11 +2,10 @@ import ApplicationLogo from "@/Components/ApplicationLogo";
 import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
-import { Link, usePage } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 import { useState } from "react";
 
-export default function AuthenticatedLayout({ header, children }) {
-    const user = usePage().props.auth.user;
+export default function AuthenticatedLayout({ user, header, children }) {
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
@@ -45,7 +44,22 @@ export default function AuthenticatedLayout({ header, children }) {
                             </div>
                         </div>
 
-                        <div className="hidden sm:ms-6 sm:flex sm:items-center">
+                        <div className="hidden sm:ms-6 sm:flex sm:items-center gap-3">
+                            <span className="text-white flex gap-3">
+                                <img
+                                    src="/assets/img/coin.png"
+                                    className="w-[20px]"
+                                    alt=""
+                                />
+                               {user.available_credits} Credits
+                            </span>
+                            <Link
+                                href="/"
+                                className="text-white py-1 px-3 rounded
+                                border transition-colors hover:text-gray-800 hover:bg-white"
+                            >
+                                Get More
+                            </Link>
                             <div className="relative ms-3">
                                 <Dropdown>
                                     <Dropdown.Trigger>
